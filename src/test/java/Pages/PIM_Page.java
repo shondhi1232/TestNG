@@ -1,3 +1,5 @@
+package Pages;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -8,13 +10,13 @@ import java.util.List;
 public class PIM_Page {
 
     @FindBy(className = "oxd-main-menu-item-wrapper")
-    List<WebElement> employeePage;
+    public List<WebElement> employeePage;
 
     @FindBy(className ="oxd-select-text-input")
-    List<WebElement> dropdowns;
+    public List<WebElement> dropdowns;
 
     @FindBy(css ="[type=submit]")
-    WebElement btnSubmit;
+    public WebElement btnSubmit;
     public PIM_Page(WebDriver driver){
         PageFactory.initElements(driver, this);
     }

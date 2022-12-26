@@ -1,4 +1,8 @@
+import Pages.DashboardPage;
+import Pages.LoginPage;
+import Pages.PIM_Page;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
@@ -10,8 +14,8 @@ public class LoginTestRunner extends Setup{
     LoginPage login;
     DashboardPage dashboardPage;
     PIM_Page PimPage;
-    @Test
-    public void _1doLogin(){
+    @Test(priority = 1)
+    public void doLogin(){
         driver.get("https://opensource-demo.orangehrmlive.com/");
         login = new LoginPage(driver);
         login.DoLogin();
@@ -20,15 +24,15 @@ public class LoginTestRunner extends Setup{
         Assert.assertTrue(urlActual.contains(urllExpected));
     }
 
-    @Test
-    public void _2checkProfile_ImgExist(){
+    @Test(priority = 2)
+    public void checkProfile_ImgExist(){
         //WebElement ImgProfile =  driver.findElement(By.className("oxd-userdropdown-img"));
 
         dashboardPage = new DashboardPage(driver);
         Assert.assertTrue(dashboardPage.imgProfile.isDisplayed());
     }
-    @Test
-    public void _3EmployementPage(){
+    @Test(priority = 3)
+    public void EmployementPage(){
         PimPage = new PIM_Page(driver);
         PimPage.employeePage.get(1).click();
         String urlActual = driver.getCurrentUrl();
@@ -36,18 +40,43 @@ public class LoginTestRunner extends Setup{
         Assert.assertTrue(urlActual.contains(urllExpected));
 
     }
-    @Test
-    public void _4selectEmployementStatus() throws InterruptedException {
-        PimPage.dropdowns.get(0).click();
-        PimPage.dropdowns.get(0).sendKeys(Keys.ARROW_DOWN);
-        PimPage.dropdowns.get(0).sendKeys(Keys.ARROW_DOWN);
-        PimPage.dropdowns.get(0).sendKeys(Keys.ENTER);
+    @Test(priority = 4)
+    public void selectEmployementStatus() throws InterruptedException {
+        WebElement selectBtn = PimPage.dropdowns.get(0);
+        Thread.sleep(3000);
+        selectBtn.click();
+        selectBtn.sendKeys(Keys.ARROW_DOWN);
+        selectBtn.sendKeys(Keys.ARROW_DOWN);
+        selectBtn.sendKeys(Keys.ENTER);
         PimPage.btnSubmit.click();
 
-        Thread.sleep(3000);
+       Thread.sleep(5000);
         List<WebElement> textData = driver.findElements(By.tagName("span"));
         String actualData = textData.get(14).getText();
-        String expectedData = "Records Found";
+        String expectedData = "(5) Records Found";
         Assert.assertTrue(actualData.contains(expectedData));
+
     }
+    @Test(priority = 5)
+    public void listEmployee() throws InterruptedException {
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        //javaScript scroll down code, and it is executing by javascriptExecutor and it is done through driver.
+        js.executeScript("window.scrollBy(0,document.body.scrollHeight)");
+
+        Thread.sleep(3000);
+        WebElement table = driver.findElement(By.className("oxd-table-body"));
+        List<WebElement> allRow = table.findElements(By.cssSelector("[role=row]"));
+
+        for (WebElement row:allRow){
+            Thread.sleep(3000);
+            List<WebElement> cells = row.findElements(By.cssSelector("[role = cell]"));
+            String dataActual = cells.get(5).getText();
+            String dataExpected = "Full-Time Contract";
+            Assert.assertTrue(dataActual.contains(dataExpected));
+
+        }
+
+    }
+
+
 }
