@@ -47,12 +47,12 @@ public class LoginTestRunner extends Setup{
         selectBtn.click();
         selectBtn.sendKeys(Keys.ARROW_DOWN);
         selectBtn.sendKeys(Keys.ARROW_DOWN);
+        //selectBtn.sendKeys(Keys.ARROW_DOWN);
         selectBtn.sendKeys(Keys.ENTER);
         PimPage.btnSubmit.click();
 
        Thread.sleep(5000);
-        List<WebElement> textData = driver.findElements(By.tagName("span"));
-        String actualData = textData.get(14).getText();
+        String actualData = PimPage.txtData.get(14).getText();
         String expectedData = "(5) Records Found";
         Assert.assertTrue(actualData.contains(expectedData));
 
@@ -64,11 +64,9 @@ public class LoginTestRunner extends Setup{
         js.executeScript("window.scrollBy(0,document.body.scrollHeight)");
 
         Thread.sleep(3000);
-        WebElement table = driver.findElement(By.className("oxd-table-body"));
-        List<WebElement> allRow = table.findElements(By.cssSelector("[role=row]"));
+        List<WebElement> allRow = PimPage.table.findElements(By.cssSelector("[role=row]"));
 
         for (WebElement row:allRow){
-            Thread.sleep(3000);
             List<WebElement> cells = row.findElements(By.cssSelector("[role = cell]"));
             String dataActual = cells.get(5).getText();
             String dataExpected = "Full-Time Contract";
@@ -76,6 +74,15 @@ public class LoginTestRunner extends Setup{
 
         }
 
+    }
+    @Test (priority = 6)
+    public void addEmployee() throws InterruptedException {
+
+        PimPage.btnAdd.get(2).click();
+        Thread.sleep(3000);
+        String actualData = PimPage.addEmployeeStatus.get(12).getText();
+        String expectedData = "Add Employee";
+        Assert.assertTrue(actualData.contains(expectedData));
     }
 
 
