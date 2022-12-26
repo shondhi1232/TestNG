@@ -16,7 +16,7 @@ public class PIM_Page {
     public List<WebElement> dropdowns;
 
     @FindBy(css ="[type=submit]")
-    public WebElement btnSubmit;
+    public List<WebElement> btnSubmit;
 
     @FindBy(tagName = "span")
     public List<WebElement> txtData;
@@ -24,12 +24,11 @@ public class PIM_Page {
     @FindBy(className = "oxd-table-body")
     public WebElement table;
 
-    @FindBy(className = "oxd-button")
-    public List<WebElement> btnAdd;
-
-    @FindBy(className = "oxd-text")
-    public List<WebElement> addEmployeeStatus;
     public PIM_Page(WebDriver driver){
+
         PageFactory.initElements(driver, this);
     }
+
+
+
 }

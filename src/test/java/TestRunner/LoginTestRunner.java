@@ -1,3 +1,5 @@
+package TestRunner;
+
 import Pages.DashboardPage;
 import Pages.LoginPage;
 import Pages.PIM_Page;
@@ -7,10 +9,11 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import setupStart.Setup;
 
 import java.util.List;
 
-public class LoginTestRunner extends Setup{
+public class LoginTestRunner extends Setup {
     LoginPage login;
     DashboardPage dashboardPage;
     PIM_Page PimPage;
@@ -49,7 +52,7 @@ public class LoginTestRunner extends Setup{
         selectBtn.sendKeys(Keys.ARROW_DOWN);
         //selectBtn.sendKeys(Keys.ARROW_DOWN);
         selectBtn.sendKeys(Keys.ENTER);
-        PimPage.btnSubmit.click();
+        PimPage.btnSubmit.get(0).click();
 
        Thread.sleep(5000);
         String actualData = PimPage.txtData.get(14).getText();
@@ -75,15 +78,31 @@ public class LoginTestRunner extends Setup{
         }
 
     }
+    /*
     @Test (priority = 6)
-    public void addEmployee() throws InterruptedException {
+    public void addEmployeePage() throws InterruptedException {
 
-        PimPage.btnAdd.get(2).click();
+        PimPage.btnAddEmployee.get(2).click();
         Thread.sleep(3000);
         String actualData = PimPage.addEmployeeStatus.get(12).getText();
         String expectedData = "Add Employee";
         Assert.assertTrue(actualData.contains(expectedData));
     }
+
+    @Test(priority = 7)
+    public void setEmployeeDetails(){
+        PimPage.txtFirstName.sendKeys("Sami");
+        PimPage.txtLastName.sendKeys("Sam");
+    }
+    @Test(priority = 8)
+    public void createLoginDetails(){
+        PimPage.btnSwitchLoginDetails.click();
+        PimPage.txtUserName.get(5).sendKeys("sami1234");
+
+        PimPage.btnSubmit.get(0).click();
+    }
+
+     */
 
 
 }
