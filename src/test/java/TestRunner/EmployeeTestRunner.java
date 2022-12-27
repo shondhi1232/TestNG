@@ -7,14 +7,13 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 import setupStart.Setup;
+import utils.Utils;
 
 public class EmployeeTestRunner extends Setup {
 
     LoginPage login;
-    //
-    // PIM_Page PimPage;
     CreateEmployeePage EmployeePage;
-
+    Utils util;
     @BeforeTest
     public void doLogin(){
         driver.get("https://opensource-demo.orangehrmlive.com/");
@@ -34,11 +33,14 @@ public class EmployeeTestRunner extends Setup {
     public void createEmployee() throws InterruptedException {
         Thread.sleep(2000);
         EmployeePage= new CreateEmployeePage(driver);
-        String firstName = "sami";
-        String lastName = "Sam";
-        String userName = "sami1234";
+        util = new Utils();
+        util.generateRandomData();
+        String firstName = util.getFirstname();
+        String lastName = util.getLastname();
+        int randomId = utils.Utils.generateRandomNumber(1000,9999);
+        String userName = util.getFirstname()+randomId;
         String password = "Sami@123456";
-        String confirmPassword = "Sami@123456";
+        String confirmPassword = password;
         EmployeePage.createEmployee(firstName,lastName,userName,password,confirmPassword);
     }
 

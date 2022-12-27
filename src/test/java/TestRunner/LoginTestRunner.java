@@ -56,7 +56,7 @@ public class LoginTestRunner extends Setup {
 
        Thread.sleep(5000);
         String actualData = PimPage.txtData.get(14).getText();
-        String expectedData = "(5) Records Found";
+        String expectedData = "Records Found";
         Assert.assertTrue(actualData.contains(expectedData));
 
     }
