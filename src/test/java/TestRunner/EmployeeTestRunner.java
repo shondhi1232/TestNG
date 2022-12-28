@@ -58,6 +58,7 @@ public class EmployeeTestRunner extends Setup {
         String confirmPassword = password;
         EmployeePage.createEmployee(firstName,lastName,userName,password,confirmPassword);
 
+        //we will wait until the header title visible and then will save data in json array
         List <WebElement> headerTitle = driver.findElements(By.className("orangehrm-main-title"));
         util.waitForElement(driver,headerTitle.get(0),20);
         Assert.assertTrue(headerTitle.get(0).isDisplayed());

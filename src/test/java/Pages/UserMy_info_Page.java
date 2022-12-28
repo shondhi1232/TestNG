@@ -15,6 +15,9 @@ public class UserMy_info_Page {
     @FindBy(className = "oxd-select-text-input")
     public List<WebElement> dropdown;
 
+    @FindBy(css = "[type=submit]")
+    public List<WebElement> submit;
+
     public UserMy_info_Page(WebDriver driver){
         PageFactory.initElements(driver,this);
     }

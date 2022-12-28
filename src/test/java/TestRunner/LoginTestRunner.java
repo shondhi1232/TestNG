@@ -10,6 +10,7 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import setupStart.Setup;
+import utils.Utils;
 
 import java.util.List;
 
@@ -64,9 +65,7 @@ public class LoginTestRunner extends Setup {
     }
     @Test(priority = 5)
     public void listEmployee() throws InterruptedException {
-        JavascriptExecutor js = (JavascriptExecutor) driver;
-        //javaScript scroll down code, and it is executing by javascriptExecutor and it is done through driver.
-        js.executeScript("window.scrollBy(0,document.body.scrollHeight)");
+        Utils.doScroll(driver);
 
         Thread.sleep(3000);
         List<WebElement> allRow = PimPage.table.findElements(By.cssSelector("[role=row]"));

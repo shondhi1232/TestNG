@@ -5,6 +5,7 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -71,13 +72,19 @@ public class Utils {
 
     }
 
+    public static void doScroll(WebDriver driver){
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        //javaScript scroll down code, and it is executing by javascriptExecutor and it is done through driver.
+        js.executeScript("window.scrollBy(0,document.body.scrollHeight)");
+    }
+
     public static List readJSON_array(String filename) throws IOException, ParseException {
         JSONParser parser = new JSONParser();
         Object obj = parser.parse(new FileReader(filename));
         JSONArray jsonArray = (JSONArray) obj;
         return jsonArray;
     }
-    public void waitForElement(WebDriver driver, WebElement headerTitle , int Time_Unit_Seconds){
+    public static void waitForElement(WebDriver driver, WebElement headerTitle, int Time_Unit_Seconds){
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(Time_Unit_Seconds));
         wait.until(ExpectedConditions.visibilityOf(headerTitle));
