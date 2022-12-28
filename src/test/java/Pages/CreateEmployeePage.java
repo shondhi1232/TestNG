@@ -39,17 +39,25 @@ public class CreateEmployeePage {
     @FindBy(css ="[type=submit]")
     public List<WebElement> btnSubmit;
 
+    @FindBy(className = "oxd-input-field-error-message")
+    public WebElement validationError;
+
     public CreateEmployeePage(WebDriver driver){
 
         PageFactory.initElements(driver, this);
     }
+    public String checkIfUserExist(String username){
+       // btnAddEmployee.get(2).click();
+        txtUserName.get(5).sendKeys(username);
+
+        return validationError.getText();
+    }
 
     public void createEmployee(String firstName,String lastName,String userName,String passwrd,String confirmPasswrd){
-        btnAddEmployee.get(2).click();
+
         txtFirstName.sendKeys(firstName);
         txtLastName.sendKeys(lastName);
-
-        btnSwitchLoginDetails.click();
+        //btnSwitchLoginDetails.click();
         txtUserName.get(5).sendKeys(userName);
         password.get(0).sendKeys(passwrd);
         confirmPassword.get(1).sendKeys(confirmPasswrd);

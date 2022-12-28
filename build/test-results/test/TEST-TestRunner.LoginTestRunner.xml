@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="TestRunner.LoginTestRunner" tests="5" skipped="0" failures="0" errors="0" timestamp="2022-12-28T02:12:41" hostname="DESKTOP-6G0HKUV" time="19.802">
+  <properties/>
+  <testcase name="doLogin" classname="TestRunner.LoginTestRunner" time="6.086"/>
+  <testcase name="checkProfile_ImgExist" classname="TestRunner.LoginTestRunner" time="0.4"/>
+  <testcase name="EmployementPage" classname="TestRunner.LoginTestRunner" time="1.191"/>
+  <testcase name="selectEmployementStatus" classname="TestRunner.LoginTestRunner" time="8.899"/>
+  <testcase name="listEmployee" classname="TestRunner.LoginTestRunner" time="3.221"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

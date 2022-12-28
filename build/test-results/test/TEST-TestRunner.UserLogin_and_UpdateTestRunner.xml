@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="TestRunner.UserLogin_and_UpdateTestRunner" tests="2" skipped="0" failures="0" errors="0" timestamp="2022-12-28T02:13:31" hostname="DESKTOP-6G0HKUV" time="2.986">
+  <properties/>
+  <testcase name="userMy_info_page" classname="TestRunner.UserLogin_and_UpdateTestRunner" time="1.531"/>
+  <testcase name="update_userInfo" classname="TestRunner.UserLogin_and_UpdateTestRunner" time="1.454"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

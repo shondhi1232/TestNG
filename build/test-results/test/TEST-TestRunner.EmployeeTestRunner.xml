@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="TestRunner.EmployeeTestRunner" tests="2" skipped="0" failures="0" errors="0" timestamp="2022-12-28T02:13:16" hostname="DESKTOP-6G0HKUV" time="8.539">
+  <properties/>
+  <testcase name="EmployementPage" classname="TestRunner.EmployeeTestRunner" time="3.866"/>
+  <testcase name="createEmployee" classname="TestRunner.EmployeeTestRunner" time="4.673"/>
+  <system-out><![CDATA[Saved Data
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

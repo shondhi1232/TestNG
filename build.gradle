@@ -28,3 +28,8 @@ dependencies {
 
 
 }
+test {
+    useTestNG() {
+        suites "./src/test/resources/Suites/MasterSuite.xml"
+    }
+}

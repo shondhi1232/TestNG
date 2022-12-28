@@ -7,9 +7,6 @@ import org.openqa.selenium.support.PageFactory;
 
 public class UserDashboardPage {
 
-    @FindBy(className ="oxd-userdropdown-name")
-    public WebElement ProfileName;
-
     public UserDashboardPage(WebDriver driver){
         PageFactory.initElements(driver,this);
     }
