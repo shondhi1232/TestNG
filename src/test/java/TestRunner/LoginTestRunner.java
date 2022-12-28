@@ -21,7 +21,9 @@ public class LoginTestRunner extends Setup {
     public void doLogin(){
         driver.get("https://opensource-demo.orangehrmlive.com/");
         login = new LoginPage(driver);
-        login.DoLogin();
+        String username = "Admin";
+        String password = "admin123";
+        login.DoLogin(username,password);
         String urlActual = driver.getCurrentUrl();
         String urllExpected = "dashboard";
         Assert.assertTrue(urlActual.contains(urllExpected));

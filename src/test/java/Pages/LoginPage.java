@@ -20,10 +20,10 @@ public class LoginPage {
         PageFactory.initElements(driver, this);
     }
 
-    public void DoLogin(){
+    public void DoLogin(String username, String password){
 
-        txtUserName.sendKeys("Admin");
-        txtPassword.sendKeys("admin123");
+        txtUserName.sendKeys(username);
+        txtPassword.sendKeys(password);
         btnSubmit.click();
     }
 

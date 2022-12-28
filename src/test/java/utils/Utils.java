@@ -5,11 +5,18 @@ import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.time.Duration;
+import java.util.List;
 
 public class Utils {
     public static int generateRandomNumber(int min, int max){
@@ -42,8 +49,8 @@ public class Utils {
         setFirstname(faker.name().firstName());
         setLastname(faker.name().lastName());
     }
-
-    public void saveJsonListData(String username, String password) throws IOException, ParseException  {
+    //write JSON array codes
+    public static void saveJsonListData(String username, String password) throws IOException, ParseException  {
 
         String fileName = "./src/test/resources/EmployeeList.json";
         JSONParser parser = new JSONParser();
@@ -63,10 +70,24 @@ public class Utils {
         System.out.println("Saved Data");
 
     }
+
+    public static List readJSON_array(String filename) throws IOException, ParseException {
+        JSONParser parser = new JSONParser();
+        Object obj = parser.parse(new FileReader(filename));
+        JSONArray jsonArray = (JSONArray) obj;
+        return jsonArray;
+    }
+    public void waitForElement(WebDriver driver, WebElement headerTitle , int Time_Unit_Seconds){
+
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(Time_Unit_Seconds));
+        wait.until(ExpectedConditions.visibilityOf(headerTitle));
+
+    }
 /*
     public static void main(String[] args) throws IOException, ParseException {
 
         Utils util = new Utils();
+
         int rand = generateRandomNumber(10,50);
         System.out.println(rand);
 
@@ -75,8 +96,12 @@ public class Utils {
         System.out.println(util.getLastname());
 
        util.saveJsonListData("sami1234","Sami@123456");
-       // util.saveJsonListData();
 
+        List data = Utils.readJSON_array("./src/test/resources/EmployeeList.json");
+        JSONObject obj = (JSONObject) data.get(1);
+        System.out.printf((String) obj.get("userName"));
     }
+
  */
+
 }
