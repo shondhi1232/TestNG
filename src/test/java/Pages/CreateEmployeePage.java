@@ -42,6 +42,9 @@ public class CreateEmployeePage {
     @FindBy(className = "oxd-input-field-error-message")
     public WebElement validationError;
 
+    @FindBy(className = "oxd-input oxd-input--active")
+    public List<WebElement> emplyeeId;
+
     public CreateEmployeePage(WebDriver driver){
 
         PageFactory.initElements(driver, this);

@@ -42,7 +42,7 @@ public class Utils {
 
     }
     //write JSON array codes
-    public static void saveJsonListData(String username, String password) throws IOException, ParseException  {
+    public static void saveJsonListData(String username, String password,String employeeID) throws IOException, ParseException  {
 
         String fileName = "./src/test/resources/EmployeeList.json";
         JSONParser parser = new JSONParser();
@@ -52,6 +52,7 @@ public class Utils {
         JSONObject userObj = new JSONObject();
         userObj.put("userName",username);
         userObj.put("Password",password);
+        userObj.put("EmployeeId",employeeID);
         jsonArray.add(userObj);
 
 
