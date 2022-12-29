@@ -52,6 +52,17 @@ public class UserLogin_and_UpdateTestRunner extends Setup {
         String urlActual = driver.getCurrentUrl();
         String urlExpected = "viewPersonalDetails";
         Assert.assertTrue(urlActual.contains(urlExpected));
+//------------------------------------------------------------------------------------
+        //Important alart!
+        //if I want go back in previous page then below script is the code
+        //driver.navigate().back();
+
+        //if I want refresh current page then below script is the one
+        //driver.navigate().refresh();
+
+        //if once I go previous page and than I want to back then below script is the one
+        //driver.navigate().forward();
+
     }
     @Test(priority = 2)
     public void update_userInfo(){
