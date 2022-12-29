@@ -4,6 +4,7 @@ import Pages.LoginPage;
 import Pages.LogoutPage;
 import Pages.UserDashboardPage;
 import Pages.UserMy_info_Page;
+import io.qameta.allure.Allure;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.ParseException;
 import org.junit.After;
@@ -52,6 +53,9 @@ public class UserLogin_and_UpdateTestRunner extends Setup {
         String urlActual = driver.getCurrentUrl();
         String urlExpected = "viewPersonalDetails";
         Assert.assertTrue(urlActual.contains(urlExpected));
+
+        // I can add description with allure command
+        Allure.description("After login Switch to my info page from user dashboard");
 //------------------------------------------------------------------------------------
         //Important alart!
         //if I want go back in previous page then below script is the code

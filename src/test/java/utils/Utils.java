@@ -1,6 +1,8 @@
 package utils;
 
 import com.github.javafaker.Faker;
+import lombok.Getter;
+import lombok.Setter;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
@@ -11,7 +13,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -19,6 +20,9 @@ import java.io.IOException;
 import java.time.Duration;
 import java.util.List;
 
+//with using lombok I don't need to create getter and setter method for encapsulate data
+@Getter
+@Setter
 public class Utils {
     public static int generateRandomNumber(int min, int max){
        int num =(int) Math.floor(Math.random()*(max-min)+min);
@@ -28,27 +32,14 @@ public class Utils {
     private String firstname;
     private String lastname;
 
-    public String getFirstname() {
-        return firstname;
-    }
-
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
-    }
-
-    public String getLastname() {
-        return lastname;
-    }
-
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
-    }
-
     public void generateRandomData(){
+        //Faker library do generate data
+        //er kaj holo data generate kora
         Faker faker = new Faker();
 
         setFirstname(faker.name().firstName());
         setLastname(faker.name().lastName());
+
     }
     //write JSON array codes
     public static void saveJsonListData(String username, String password) throws IOException, ParseException  {
