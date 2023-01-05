@@ -15,4 +15,7 @@
  - https://mvnrepository.com/artifact/com.googlecode.json-simple/json-simple
  - https://mvnrepository.com/artifact/io.qameta.allure/allure-testng
  - https://mvnrepository.com/artifact/org.projectlombok/lombok
-## Test Reports:
+## Command for Allure Report:
+ - ```allure generate allure-results --clean -o allure-report```
+ - ```allure serve allure-results```
+## Test Report:
