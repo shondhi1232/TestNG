@@ -1,4 +1,4 @@
-# Funtonal Test on OrangeHRM site
+# Functional Test on OrangeHRM site
 ## Technology and Tools:
   - IntelliJ IDEA Community 
   -  Tools: ```Selenium```
