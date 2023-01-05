@@ -1,4 +1,4 @@
-# Unit Test on OrangeHRM site
+# Funtonal Test on OrangeHRM site
 ## Technology and Tools:
   - IntelliJ IDEA Community 
   -  Tools: ```Selenium```
@@ -13,6 +13,10 @@
  - https://mvnrepository.com/artifact/com.googlecode.json-simple/json-simple
  - https://mvnrepository.com/artifact/io.qameta.allure/allure-testng
  - https://mvnrepository.com/artifact/org.projectlombok/lombok
+ ### Test:
+ - useTestNG() {
+        suites "./src/test/resources/Suites/MasterSuite.xml"
+    }
 ## Command for Allure Report:
  - ```allure generate allure-results --clean -o allure-report```
  - ```allure serve allure-results```
