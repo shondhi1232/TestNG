@@ -16,5 +16,3 @@
  - https://mvnrepository.com/artifact/io.qameta.allure/allure-testng
  - https://mvnrepository.com/artifact/org.projectlombok/lombok
 ## Test Reports:
- - In this report, showing failed because subject assertion is failed and its only reason is ToolsQA site error.
- 
