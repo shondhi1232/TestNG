@@ -1,10 +1,8 @@
 # Unit Test on OrangeHRM site
 ## Technology and Tools:
   - IntelliJ IDEA Community 
-### Tools:
-   - Selenium
-### Framworks:
-   - TestNG
+### Tools: - ```Selenium```
+### Framworks: - ```TestNG```
 ## Pre-requisit:
  - Setup Environment veriable 
  ### Dependencies setup:
